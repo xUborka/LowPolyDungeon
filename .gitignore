@@ -71,8 +71,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# /[Aa]ssets/PolygonDungeonRealms
-# /[Aa]ssets/PolygonStarter/*
-# /[Aa]ssets/SampleScenes/*
-# /[Aa]ssets/Standard Assets/*
-# /[Aa]ssets/StarterAssets/*
+/[Aa]ssets/PolygonDungeonRealms
+/[Aa]ssets/PolygonStarter/*
+/[Aa]ssets/SampleScenes/*
+/[Aa]ssets/Standard Assets/*
+/[Aa]ssets/StarterAssets/*
