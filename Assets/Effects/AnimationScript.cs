@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class AnimationScript : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class AnimationScript : MonoBehaviour
     public List<Slash> slashes;
 
     private bool attacking;
+    public bool rolling;
+    
+    private ThirdPersonController controller;
+
     // Start is called before the first frame update
     void Start()
     {
+        controller = GetComponent<ThirdPersonController>();
         DisableSlashes();
     }
 
@@ -24,7 +30,22 @@ public class AnimationScript : MonoBehaviour
             anim.SetBool("Attack", true);
             StartCoroutine(SlashAttack());
         }
+
+        if (Input.GetButtonDown("Roll") && !attacking && !rolling)
+        {
+            rolling = true;
+            anim.SetBool("Roll", true);
+            controller.MoveSpeed = 7f;
+            StartCoroutine(Rolling());
+        }
         
+    }
+
+    IEnumerator Rolling(){
+        yield return new WaitForSeconds(0.55f);
+        controller.MoveSpeed = 3f;
+        rolling = false;
+        anim.SetBool("Roll", false);
     }
 
     IEnumerator SlashAttack(){
