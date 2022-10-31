@@ -1,0 +1,4 @@
+Move required assets to a folder
+Adjust vfx timing
+Check if vfx can be triggered from keyframe
+Split animation controllers
