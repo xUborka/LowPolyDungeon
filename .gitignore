@@ -76,3 +76,7 @@ crashlytics-build.properties
 /[Aa]ssets/SampleScenes/*
 /[Aa]ssets/Standard Assets/*
 /[Aa]ssets/StarterAssets/*
+/[Aa]ssets/Mirror/*
+/[Aa]ssets/com.rlabrecque.steamworks.net/*
+/[Aa]ssets/TextMesh Pro/*
+/bin/*
