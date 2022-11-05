@@ -477,4 +477,6 @@ MonoBehaviour:
   PlayerSteamID: 0
   AvatarReceived: 0
   PlayerNameText: {fileID: 6426978233264128172}
+  PlayerStatusText: {fileID: 6426978232269110066}
+  Ready: 0
   PlayerIcon: {fileID: 6426978232226141044}

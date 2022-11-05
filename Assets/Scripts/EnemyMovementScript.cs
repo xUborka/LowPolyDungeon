@@ -27,29 +27,29 @@ public class EnemyMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attacking){
-            attackTimer += Time.deltaTime;
-            if (attackTimer > 2f && Vector3.Distance(movePositionTransform.position, gameObject.transform.position) >= navMeshAgent.stoppingDistance){
-                attackTimer = 0f;
-                attacking = false;
-            }
-        }
+        // if (attacking){
+        //     attackTimer += Time.deltaTime;
+        //     if (attackTimer > 2f && Vector3.Distance(movePositionTransform.position, gameObject.transform.position) >= navMeshAgent.stoppingDistance){
+        //         attackTimer = 0f;
+        //         attacking = false;
+        //     }
+        // }
 
-        if (!attacking){
-            navMeshAgent.destination = movePositionTransform.position;
-        }
+        // if (!attacking){
+        //     navMeshAgent.destination = movePositionTransform.position;
+        // }
 
-        anim.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-        anim.SetBool("Attack", attacking);
+        // anim.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+        // anim.SetBool("Attack", attacking);
 
         
 
-        // Below stopping distance = Melee range
-        if (Vector3.Distance(movePositionTransform.position, gameObject.transform.position) < navMeshAgent.stoppingDistance){
-            Vector3 direction = (movePositionTransform.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10.0f);
-            attacking = true;
-        }
+        // // Below stopping distance = Melee range
+        // if (Vector3.Distance(movePositionTransform.position, gameObject.transform.position) < navMeshAgent.stoppingDistance){
+        //     Vector3 direction = (movePositionTransform.position - transform.position).normalized;
+        //     Quaternion lookRotation = Quaternion.LookRotation(direction);
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10.0f);
+        //     attacking = true;
+        // }
     }
 }
