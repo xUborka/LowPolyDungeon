@@ -45,7 +45,7 @@ public class SteamLobby : MonoBehaviour
 
     public void HostLobby(){
         Debug.Log("Host pressed");
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, manager.maxConnections);
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback){
@@ -56,7 +56,7 @@ public class SteamLobby : MonoBehaviour
         manager.StartHost();
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name", SteamFriends.GetPersonaName().ToString() + "'s Lobby");
-        SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "game_type", "low_polly_stuff");
+        // SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "game_type", "low_polly_stuff");
     }
 
     private void OnJoinRequest(GameLobbyJoinRequested_t callback){
@@ -86,8 +86,8 @@ public class SteamLobby : MonoBehaviour
     {
         if (lobbyIDs.Count > 0) { lobbyIDs.Clear(); }
 
-        // SteamMatchmaking.AddRequestLobbyListResultCountFilter(10);
-        SteamMatchmaking.AddRequestLobbyListStringFilter("game_type", "low_polly_stuff", ELobbyComparison.k_ELobbyComparisonEqual);
+        SteamMatchmaking.AddRequestLobbyListResultCountFilter(10);
+        // SteamMatchmaking.AddRequestLobbyListStringFilter("game_type", "low_polly_stuff", ELobbyComparison.k_ELobbyComparisonEqual);
         SteamMatchmaking.RequestLobbyList();
     }
 
