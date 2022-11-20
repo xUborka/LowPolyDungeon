@@ -104,7 +104,7 @@ public class LobbyController : MonoBehaviour
     public void LeaveLobby(){
         Debug.Log("LeaveLobby pressed");
         SteamMatchmaking.LeaveLobby(new CSteamID(CurrentLobbyID));
-        manager.StopHost();
+        Manager.StopHost();
     }
 
     public void UpdatePlayerList()
