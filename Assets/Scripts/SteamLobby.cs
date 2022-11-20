@@ -10,6 +10,7 @@ public class SteamLobby : MonoBehaviour
     public static SteamLobby Instance;
 
     protected Callback<LobbyCreated_t> LobbyCreated;
+    protected Callback<LobbyChatUpdate_t> LobbyChatUpdate;
     protected Callback<GameLobbyJoinRequested_t> JoinRequest;
     protected Callback<LobbyEnter_t> LobbyEnter;
 
@@ -36,6 +37,7 @@ public class SteamLobby : MonoBehaviour
         manager = GetComponent<CustomNetworkManager>();
 
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
+        LobbyChatUpdate = Callback<LobbyChatUpdate_t>.Create(OnLobbyChatUpdate);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
         LobbyEnter = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
 
@@ -57,6 +59,10 @@ public class SteamLobby : MonoBehaviour
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name", SteamFriends.GetPersonaName().ToString() + "'s Lobby");
         // SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "game_type", "low_polly_stuff");
+    }
+
+    private void OnLobbyChatUpdate(LobbyChatUpdate_t callback){
+        
     }
 
     private void OnJoinRequest(GameLobbyJoinRequested_t callback){
