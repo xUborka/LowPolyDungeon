@@ -33,6 +33,7 @@ public class LobbiesListManager : MonoBehaviour
     public void DisplayLobbies(List<CSteamID> lobbyIDs, LobbyDataUpdate_t result)
     {
         Debug.Log("DisplayLobbies " + lobbyIDs.Count.ToString());
+        DestroyLobbies();
         for(int i = 0; i < lobbyIDs.Count; i++){
             if (lobbyIDs[i].m_SteamID == result.m_ulSteamIDLobby)
             {
@@ -53,6 +54,7 @@ public class LobbiesListManager : MonoBehaviour
 
     public void GetListOfLobbies()
     {
+        Debug.Log("GetListOfLobbies");
         lobbiesButton.SetActive(false);
         hostButton.SetActive(false);
         lobbiesMenu.SetActive(true);
